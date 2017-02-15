@@ -11,13 +11,14 @@ int new_msg = 0;
 int enable_int = 0;
 
 void annoying_message(int sig) {
+
 	if (new_msg == 1) {
 		printf("%s\n", temp_msg);
 	}
 	else {
 		printf("THIS MESSAGE IS ANNOYING\n");
 	}
-	signal(SIGALRM, annoying_message);
+
 	if (new_time == 1) {
 		alarm(temp_sec);
 	}
@@ -51,14 +52,15 @@ int main(int argc, char *argv[])
 	}
 
 	signal(SIGALRM, annoying_message);
+	signal(SIGINT, SIG_IGN);
+	
 	if (new_time == 1) {
-		alarm(new_time);
+		alarm(temp_sec);
 	}
 	else {
 		alarm(5);
 	}
 
-	//Infinite loop to keep the program running
-	while (1);
+	while(1);
 
 }
