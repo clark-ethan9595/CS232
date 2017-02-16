@@ -1,66 +1,76 @@
+/*
+ * prank.c displays an annoying message and cannot be interrupted by Cntl-c (by default)
+ * 
+ * Created by: Ethan Clark
+ * Student ID: 1370068
+ * CS 232 - Project1
+ * Spring 2017
+ */
+
+// Include statements
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <unistd.h>
 
-char * temp_msg;
-int temp_sec;
-int new_time = 0;
-int new_msg = 0;
+// Create global variables for the command line arguments
+int time = 5;
+char *msg = "THIS MESSAGE IS ANNOYING";
 int enable_int = 0;
 
+/*
+ * annoying_message() is the function tied to the SIGALRM signal to display the annoying message
+ *
+ * sig is the number of the signal that was received 
+ */
 void annoying_message(int sig) {
 
-	if (new_msg == 1) {
-		printf("%s\n", temp_msg);
-	}
-	else {
-		printf("THIS MESSAGE IS ANNOYING\n");
-	}
+	// Print the annoying message
+	printf("%s\n", msg);
 
-	if (new_time == 1) {
-		alarm(temp_sec);
-	}
-	else {
-		alarm(5);
-	}
+	// Set the appropriate time for the alarm
+	alarm(time);
 }
 
-int main(int argc, char *argv[])
-{
-	for (int i = 1; i < argc; i++)
-	{
-		if (strcmp(argv[i], "+i") == 0)
-		{
+/*
+ * main() processes (potential) command line arguments and binds the signals
+ *
+ * argc is the number of command line arguments read in
+ * argv[] is the array of command line arguments
+ */
+int main(int argc, char *argv[]) {
+
+	// For each command line argument, check if it is a legal oneß
+	for (int i = 1; i < argc; i++) {
+
+		// Check for the disable interrupts command line argument
+		if (strcmp(argv[i], "+i") == 0) {
 			enable_int = 1;
-			printf("Processed +i argument\n");
 		}
 
-		if (strcmp(argv[i], "-m") == 0)
-		{
-			temp_msg = argv[i+1];
-			new_msg = 1;
+		// Check for the new message command line arguments
+		if (strcmp(argv[i], "-m") == 0) {
+			msg = argv[i+1];
 		}
 
-		if (strcmp(argv[i], "+t") == 0)
-		{
-			temp_sec = atoi(argv[i+1]);
-			new_time = 1;
+		// Check for the new time command line argument
+		if (strcmp(argv[i], "+t") == 0) {
+			time = atoi(argv[i+1]);
 		}
-
 	}
 
+	// Bind the annoying_message function to SIGALARM signal
 	signal(SIGALRM, annoying_message);
-	signal(SIGINT, SIG_IGN);
+
+	// Bind the signal ignore function to the SIGINT signal if user did not specify +i argument
+	if (enable_int == 0) {
+		signal(SIGINT, SIG_IGN);
+	}
 	
-	if (new_time == 1) {
-		alarm(temp_sec);
+	// Set the appropriate time for the timer and pause the process
+	while(1) {
+		alarm(time);
+		pause();
 	}
-	else {
-		alarm(5);
-	}
-
-	while(1);
-
 }
