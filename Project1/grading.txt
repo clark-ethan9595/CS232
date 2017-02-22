@@ -1,0 +1,19 @@
+I the undersigned affirm that the submitted project is
+the work of myself and no one else.
+
+
+NAME:  ETHAN CLARK
+
+
+
+Category                    Points Possible      Points Earned
+Command-line switches       20                   
+System calls                20                   
+Structure                   20                   
+Efficiency                  10                   
+Error-handling              10                   
+Style, Documentation        20                                      
+
+Total                       100
+
+Grader comments:

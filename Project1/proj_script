@@ -1,0 +1,109 @@
+Script started on Thu 16 Feb 2017 04:51:24 PM EST
+elc3@goldberg:~/Documents/CS232/Project1$ gcc =-  -o main main.c
+elc3@goldberg:~/Documents/CS232/Project1$ ./main
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+^Z
+[1]+  Stopped                 ./main
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21612 pts/1    00:00:00 main
+21613 pts/1    00:00:00 ps
+elc3@goldberg:~/Documents/CS232/Project1$ kill -KILL 21612
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21615 pts/1    00:00:00 ps
+[1]+  Killed                  ./main
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +t 1
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+^Z
+[1]+  Stopped                 ./main +t 1
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21618 pts/1    00:00:00 main
+21619 pts/1    00:00:00 ps
+elc3@goldberg:~/Documents/CS232/Project1$ kill -KILL 21618
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21620 pts/1    00:00:00 ps
+[1]+  Killed                  ./main +t 1
+elc3@goldberg:~/Documents/CS232/Project1$ ./main -m HELLO +t 2
+HELLO
+HELLO
+HELLO
+HELLO
+^Z
+[1]+  Stopped                 ./main -m HELLO +t 2
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21621 pts/1    00:00:00 main
+21623 pts/1    00:00:00 ps
+elc3@goldberg:~/Documents/CS232/Project1$ kill   -KILL 21621
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +t 3 +i = -m YAYYYYAAY
+YAYYYYAAY
+YAYYYYAAY
+YAYYYYAAY
+^C
+[1]+  Killed                  ./main -m HELLO +t 2
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +i -m HEEYYYYYY +t 1
+HEEYYYYYY
+HEEYYYYYY
+HEEYYYYYY
+HEEYYYYYY
+HEEYYYYYY
+HEEYYYYYY
+HEEYYYYYY
+^C
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +i
+THIS MESSAGE IS ANNOYING
+THIS MESSAGE IS ANNOYING
+^Z
+[1]+  Stopped                 ./main +i
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21629 pts/1    00:00:00 main
+21632 pts/1    00:00:00 ps
+elc3@goldberg:~/Documents/CS232/Project1$ kill -KILL 21629
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +i -m WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+^C
+[1]+  Killed                  ./main +i
+elc3@goldberg:~/Documents/CS232/Project1$ ./main +t 2 -m ETHAN!!!!
+./main +t 2 -m ETHAN./main +i -m WOOWOWOWOWOW./main +i -m WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+WOOWOWOWOWOW
+^Z
+[1]+  Stopped                 ./main +t 2 -m ETHAN./main +i -m WOOWOWOWOWOW./main +i -m WOOWOWOWOWOW
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21637 pts/1    00:00:00 main
+21639 pts/1    00:00:00 ps
+elc3@goldberg:~/Documents/CS232/Project1$ kill 21637
+elc3@goldberg:~/Documents/CS232/Project1$ kill -KILL 21637
+elc3@goldberg:~/Documents/CS232/Project1$ ps
+  PID TTY          TIME CMD
+21602 pts/1    00:00:00 bash
+21642 pts/1    00:00:00 ps
+[1]+  Killed                  ./main +t 2 -m ETHAN./main +i -m WOOWOWOWOWOW./main +i -m WOOWOWOWOWOW
+elc3@goldberg:~/Documents/CS232/Project1$ ^C
+elc3@goldberg:~/Documents/CS232/Project1$ exit
+
+Script done on Thu 16 Feb 2017 04:56:54 PM EST

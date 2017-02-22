@@ -1,0 +1,21 @@
+Five Systems Calls from main.c
+Ethan Clark
+Student ID: 1370068
+CS 232 - Project 1
+Spring 2017
+
+1. execve("./main", ["./main"], [/* 70 vars */]) = 0
+	- execve() executes the program "main" with the first argument. The second argument is an array of argument strings, containing the filename "main" as the first of them. The third argument is an array of strings, which is the environment passed to the new program.
+
+2. brk(NULL)                               = 0x1812000
+	- brk() changes the location of the program break, which defines the end of the process's data segment. The argument is typically a memory address and that is where brk() would set the end of the data segment to, but we sent it a NULL value, so we did not need to allocate more memory for this program. The return value is the location of the program break.
+
+3. access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+	- access() checks whether the calling process can access the file "/etc/ld.so.nohwcap". F_OK tests for the existence of the file. Apparently, the file does not exist so access() returned -1 and ENOENT is set. The ld.so file is a program that find and load the shared objects needed by a program, prepare the program to run, and then run it, but my main.c program does not need that.
+
+4. mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe728c09000
+	- mmap() creates a new mapping in the virtual address space of the calling process. The kernel gets to choose the address to create the mapping (because of the NULL argument) and sets the pages to be read and write as well as private, which means updates to the mapping are not visible to other processes mapping the same file, and anonymous, which means the mapping is not back by any file. The returned value is a pointer to the mapped area.
+
+5. open("/usr/local/cuda-8.0/lib64/tls/x86_64/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+	- open() takes the path for a file and returns a file descriptor, but the file did not exist, so it returned a -1 and set ENOENT. It tried to request opening the file as read only (O_RDONLY) and tried to enable the close-on-exec flag (O_CLOEXEC) for the file descriptor. The libc.so.6 is a glicb library that is apparently not needed for my program.
+
