@@ -1,0 +1,53 @@
+Script started on Mon 27 Feb 2017 03:13:57 PM EST
+elc3@dijkstra:~/Documents/CS232/Project2$ ls
+grading.txt  names.txt	shell.sh  typescript
+elc3@dijkstra:~/Documents/CS232/Project2$ ./shell.sh
+
+These computer(s) are open...
+boole
+hopper
+ritchie
+church
+augusta
+codd
+backus-naur
+englebart
+turing
+wall
+zuse
+stallman
+
+These computer(s) are occupied by users, booted in Linux...
+aiken
+dijkstra
+goldberg
+hillis
+noyce-kilby
+wilkes
+taylor
+thompson
+eckert-mauchly
+babbage
+hoare
+kernighan
+stroustrup
+atanasoff
+knuth
+sutherland
+chomsky
+kay
+wirth
+hollerith
+
+These computer(s) are shut down...
+vonneumann
+torvalds
+
+These computer(s) are booted in windows...
+leibniz
+
+elc3@dijkstra:~/Documents/CS232/Project2$ ls
+grading.txt  names.txt	shell.sh  typescript
+elc3@dijkstra:~/Documents/CS232/Project2$ exit
+
+Script done on Mon 27 Feb 2017 03:14:52 PM EST
