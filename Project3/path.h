@@ -12,15 +12,23 @@
 #define PATH_H_
 
 #include <string>
+#include <vector>
+#include <stdlib.h>
+#include <string.h>
+#include <iostream>
+#include <stdexcept>
+#include <dirent.h>
 using namespace std;
 
 class Path {
 public:
 	Path();
-	string find(const string& program) const;
-	string getDirectory(int i) const;
+	int find(const string& program) const;
+	char* getDirectory(int i) const;
 
 private:
-}
+	char* pPath;
+	vector<char*> directories;
+};
 
 #endif

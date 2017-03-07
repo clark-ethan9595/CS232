@@ -13,12 +13,46 @@ using namespace std;
 
 Path::Path() {
 
+	pPath = getenv("PATH");
+
+	char* pch;
+	pch = strtok (pPath, ":");
+	while (pch != NULL)
+	{
+		directories.push_back(pch);
+		pch = strtok (NULL, ":");
+	}
+
+	/*
+	for (unsigned i = 0; i < directories.size(); i++) {
+		char* temp = directories[i];
+		cout << temp << endl;
+	}
+	*/
+
 }
 
-string Path::find(const string& program) const {
-	
+int Path::find(const string& program) const {
+	int index;
+	DIR *dir;
+	struct dirent *ent;
+	for (unsigned i = 0; i < directories.size(); i++) {
+		if ((dir = opendir(directories[i])) != NULL) {
+			while ((ent = readdir(dir)) != NULL) {
+				if (ent->d_name == program) {
+					index = i;
+				}
+			}
+			closedir(dir);
+		}
+	}
+	return index;
 }
 
-string Path::getDirectory(int i) const {
-	
+char* Path::getDirectory(int i) const {
+	if (i > directories.size()) {
+		throw range_error("Invalid index");
+	}
+	char* temp_directory = directories[i];
+	return temp_directory;
 }

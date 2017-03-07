@@ -12,8 +12,10 @@ using namespace std;
 
 Prompt::Prompt() {
 
+	current_directory = getcwd(buff, PATH_MAX + 1);
 }
 
-string Prompt::get() const {
+char* Prompt::get() const {
 
+	return current_directory;
 }

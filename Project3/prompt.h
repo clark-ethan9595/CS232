@@ -11,13 +11,17 @@
 #define PROMPT_H_
 
 #include <string>
+#include <limits.h>
+#include <unistd.h>
 using namespace std;
 
 class Prompt {
 public:
 	Prompt();
-	string get() const 
+	char* get() const;
 private:
-}
+	char* current_directory;
+	char buff[PATH_MAX + 1];
+};
 
 #endif
