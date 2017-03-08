@@ -10,15 +10,23 @@
 #ifndef PROMPT_H_
 #define PROMPT_H_
 
+// Includes
 #include <string>
 #include <limits.h>
 #include <unistd.h>
 using namespace std;
 
+// Declare Prompt class
 class Prompt {
+
+// Public section of Prompt class
+// Method declarations
 public:
 	Prompt();
 	char* get() const;
+
+// Private section of Prompt class
+// Private instance variables
 private:
 	char* current_directory;
 	char buff[PATH_MAX + 1];

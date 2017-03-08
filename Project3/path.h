@@ -11,6 +11,7 @@
 #ifndef PATH_H_
 #define PATH_H_
 
+// Includes
 #include <string>
 #include <vector>
 #include <stdlib.h>
@@ -20,12 +21,18 @@
 #include <dirent.h>
 using namespace std;
 
+// Declare Path class
 class Path {
+
+// Public section of Path class
+// Method declarations
 public:
 	Path();
 	int find(const string& program) const;
 	char* getDirectory(int i) const;
 
+// Private section of Path class
+// Private instance variables
 private:
 	char* pPath;
 	vector<char*> directories;
