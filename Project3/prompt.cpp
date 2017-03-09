@@ -18,6 +18,7 @@ using namespace std;
 Prompt::Prompt() {
 
 	current_directory = getcwd(buff, PATH_MAX + 1);
+	strcat(current_directory, "/KEShell");
 }
 
 /*

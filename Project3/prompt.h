@@ -11,7 +11,9 @@
 #define PROMPT_H_
 
 // Includes
-#include <string>
+#include <string.h>
+#include <stdio.h>
+#include <iostream>
 #include <limits.h>
 #include <unistd.h>
 using namespace std;

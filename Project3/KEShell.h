@@ -11,6 +11,9 @@
 
 // Includes
 #include <iostream>
+#include "path.h"
+#include "prompt.h"
+#include "CommandLine.h"
 using namespace std;
 
 // Declare KEShell class
@@ -25,6 +28,8 @@ public:
 // Private section of KEShell class
 // Private instance variables
 private:
+	Prompt prompt;
+	Path path;
 	
 };
 
