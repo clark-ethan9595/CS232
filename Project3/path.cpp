@@ -35,7 +35,7 @@ Path::Path() {
  *		program is stored
  */
 int Path::find(const string& program) const {
-	int index;
+	int index = -1;
 	DIR *dir;
 	struct dirent *ent;
 	for (unsigned i = 0; i < directories.size(); i++) {

@@ -24,14 +24,12 @@ using namespace std;
 // Declare Path class
 class Path {
 
-// Public section of Path class
 // Method declarations
 public:
 	Path();
 	int find(const string& program) const;
 	char* getDirectory(int i) const;
 
-// Private section of Path class
 // Private instance variables
 private:
 	char* pPath;

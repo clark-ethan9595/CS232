@@ -21,13 +21,11 @@ using namespace std;
 // Declare Prompt class
 class Prompt {
 
-// Public section of Prompt class
 // Method declarations
 public:
 	Prompt();
 	char* get() const;
 
-// Private section of Prompt class
 // Private instance variables
 private:
 	char* current_directory;

@@ -11,6 +11,7 @@
 
 // Includes
 #include <iostream>
+#include <sys/wait.h>
 #include "path.h"
 #include "prompt.h"
 #include "CommandLine.h"
@@ -20,12 +21,10 @@ using namespace std;
 class KEShell {
 
 // Public section of KEShell class
-// KEShell methods
 public:
 	KEShell();
 	void run();
 
-// Private section of KEShell class
 // Private instance variables
 private:
 	Prompt prompt;

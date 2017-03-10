@@ -1,28 +1,28 @@
 /*
- * CommandLine.cpp
+ * CommandLine.cpp is a class to read a command-line and construct a vector from the arguments
  *
  *  Created on: Mar 7, 2017
- *      Author: kj34
+ *      Author: Kyuhyun Jeong
+ *		Parthner: Ethan Clark
+ * CS 232 - Project 3
  */
 
 #include "CommandLine.h"
-#include <iostream>
-#include <stdlib.h>
-#include <vector>
-#include <string.h>
-#include <stdio.h>
-#include <sstream>
 using namespace std;
 
-
+/*
+ * CommandLine() default constructor
+ */
 CommandLine::CommandLine() {
-	// TODO Auto-generated constructor stub
 	argc = 0;
 }
 
+/*
+ * CommandLine() explicit constructor
+ * Parameter: istream& in
+ *		Used to read in the commands from the user
+ */
 CommandLine::CommandLine(istream& in) {
-	// TODO Auto-generated constructor stub
-
 	argc = 0;
 
 	string argString;
@@ -44,22 +44,44 @@ CommandLine::CommandLine(istream& in) {
 
 }
 
+/*
+ * getCommand()
+ * Returns the command portion of the command-line
+ */
 char* CommandLine::getCommand() const{
 	return argv[0];
 }
 
+/*
+ * getArgCount()
+ * Returns the number of arguments from the command-line
+ */
 int CommandLine::getArgCount() const{
 	return argc;
 }
 
+/*
+ * getArgVector()
+ * Returns the arguments for the command from the command-line
+ *		Accomplished by incrementing the char** array pointer to the 2nd element
+ */
 char** CommandLine::getArgVector() const{
-	return argv;
+	return argv+1;
 }
 
+/*
+ * getArgVector(int i)
+ * Returns the argument from the vector at the given index
+ */
 char* CommandLine::getArgVector(int i) const{
 	return argv[i];
 }
 
+/*
+ * noAmpersand()
+ * Returns true if there was no ampersand given in the command-line
+ * Returns false if there was an ampersand given in the command-line
+ */
 bool CommandLine::noAmpersand() const{
 	for(int i=0; i<argc; i++){
 		if (*argv[i] == '&') return false;
@@ -67,8 +89,12 @@ bool CommandLine::noAmpersand() const{
 	return true;
 }
 
+/*
+ * ~CommandLine()
+ * Destructor for the CommandLine class
+ * Reclaims memory from each element in argv as well as argv itself
+ */
 CommandLine::~CommandLine() {
-	// TODO Auto-generated destructor stub
 	for (size_t i = 0; i < myArgv.size(); i++) {
 		delete[] argv[i];
 	}

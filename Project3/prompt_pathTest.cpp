@@ -30,5 +30,8 @@ int main() {
 	int index3 = path.find("less");
 	cout << index3 << endl;
 
+	int index4 = path.find("ethan");
+	cout << index4 << endl;
+
 	return 0;
 }
