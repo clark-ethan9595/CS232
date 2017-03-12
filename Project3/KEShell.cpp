@@ -21,8 +21,10 @@ KEShell::KEShell() { }
  *	1. Output the prompt directory
  *	2. Create a CommandLine object to read in the commands from the user
  *	3. If the command was exit -> return from while loop.
- *	4. If the command was invalid (i.e. path.find() returns -1) -> Inform the user command was invalid
- *	5. Otherwise valid command...
+ *  4. If the command was pwd -> output working directory
+ *  5. If the command was cd -> change directory
+ *	6. If the command was invalid (i.e. path.find() returns -1) -> Inform the user command was invalid
+ *	7. Otherwise valid command...
  *		a. Create child process
  *		b. Have the child process do the following:
  *			i. Get the index of the path of the command
@@ -42,29 +44,44 @@ void KEShell::run() {
 			return;
 		}
 
+		if (strcmp(cl.getCommand(), "pwd") == 0) {
+			cout << endl << prompt.get();
+			continue;
+		}
+
+		if (strcmp(cl.getCommand(), "cd") == 0) {
+			int return_value = chdir(getArgVector(i));
+			if (return_value == -1) {
+				cout << "Invalid directory..." << endl;
+			}
+			continue;
+		}
+
 		if (path.find(cl.getCommand()) == -1) {
 			cout << "Command not found..." << endl;
-		} else {
-			pid_t child = fork();
-
-			if (child == 0) {
-				int index = path.find(cl.getCommand());
-				char* temp_char = path.getDirectory(index);
-				strcat(temp_char, "/");
-				strcat(temp_char, cl.getCommand());
-
-				execve(temp_char, cl.getArgVector(), NULL);
-
-			}
-
-			int status;
-
-			if (cl.noAmpersand()) {
-				waitpid(child, &status, 0);
-			}
-
-			cout << endl;
+			continue;
 		}
+
+		pid_t child = fork();
+
+		if (child == 0) {
+			int index = path.find(cl.getCommand());
+			char* temp_char = path.getDirectory(index);
+			strcat(temp_char, "/");
+			strcat(temp_char, cl.getCommand());
+
+			execve(temp_char, cl.getArgVector(), NULL);
+
+		}
+
+		int status;
+
+		if (cl.noAmpersand()) {
+			waitpid(child, &status, 0);
+		}
+
+		cout << endl;
+		
 	}
 
 }
