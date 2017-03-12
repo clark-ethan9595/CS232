@@ -21,8 +21,8 @@ KEShell::KEShell() { }
  *	1. Output the prompt directory
  *	2. Create a CommandLine object to read in the commands from the user
  *	3. If the command was exit -> return from while loop.
- *  4. If the command was pwd -> output working directory
- *  5. If the command was cd -> change directory
+ *	4. If the command was pwd -> output working directory
+ *	5. If the command was cd -> change directory
  *	6. If the command was invalid (i.e. path.find() returns -1) -> Inform the user command was invalid
  *	7. Otherwise valid command...
  *		a. Create child process
@@ -44,44 +44,43 @@ void KEShell::run() {
 			return;
 		}
 
-		if (strcmp(cl.getCommand(), "pwd") == 0) {
-			cout << endl << prompt.get();
-			continue;
-		}
+		// if (strcmp(cl.getCommand(), "pwd") == 0) {
+		// 	cout << endl << prompt.get() << endl;
+		// 	continue;
+		// }
 
-		if (strcmp(cl.getCommand(), "cd") == 0) {
-			int return_value = chdir(getArgVector(i));
-			if (return_value == -1) {
-				cout << "Invalid directory..." << endl;
-			}
-			continue;
-		}
+		// if ((strcmp(cl.getCommand(), "cd") == 0) && cl.getArgVector(1) != NULL) {
+		// 	int return_value = chdir(cl.getArgVector(1));
+		// 	if (return_value == -1) {
+		// 		cout << "Invalid directory name..." << endl;
+		// 	} else {
+		// 		prompt = Prompt();
+		// 	}
+		// 	continue;
+		// }
 
 		if (path.find(cl.getCommand()) == -1) {
 			cout << "Command not found..." << endl;
-			continue;
-		}
+		} else {
 
-		pid_t child = fork();
+			pid_t child = fork();
 
-		if (child == 0) {
-			int index = path.find(cl.getCommand());
-			char* temp_char = path.getDirectory(index);
-			strcat(temp_char, "/");
-			strcat(temp_char, cl.getCommand());
+			if (child == 0) {
+				int index = path.find(cl.getCommand());
+				char* temp_char = path.getDirectory(index);
+				strcat(temp_char, "/");
+				strcat(temp_char, cl.getCommand());
 
-			execve(temp_char, cl.getArgVector(), NULL);
+				execve(temp_char, cl.getArgVector(), NULL);
+			}
 
-		}
+			int status;
 
-		int status;
+			if (cl.noAmpersand()) {
+				waitpid(child, &status, 0);
+			}
 
-		if (cl.noAmpersand()) {
-			waitpid(child, &status, 0);
-		}
-
-		cout << endl;
-		
+			cout << endl;
+		}	
 	}
-
 }
