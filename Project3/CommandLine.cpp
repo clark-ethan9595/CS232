@@ -21,9 +21,12 @@ CommandLine::CommandLine() {
  * CommandLine() explicit constructor
  * Parameter: istream& in
  *		Used to read in the commands from the user
+ * Set the noAmpersand bool variable to false if there is an ampersand in the command-line
  */
 CommandLine::CommandLine(istream& in) {
 	argc = 0;
+
+	noAmpersand_var = true;
 
 	string argString;
 	getline(in, argString);
@@ -31,8 +34,12 @@ CommandLine::CommandLine(istream& in) {
 
 	string temp;
 	while (argStream >> temp) {
-		myArgv.push_back(temp);
-		argc++;
+		if (strcmp(temp.c_str(), "&") == 0) {
+			noAmpersand_var = false;
+		} else {
+			myArgv.push_back(temp);
+			argc++;
+		}
 	}
 
 	argv = new char*[myArgv.size()];
@@ -41,7 +48,6 @@ CommandLine::CommandLine(istream& in) {
 		argv[i] = new char[myArgv[i].size() + 1];
 		strcpy(argv[i], myArgv[i].c_str());
 	}
-
 }
 
 /*
@@ -66,7 +72,7 @@ int CommandLine::getArgCount() const{
  *		Accomplished by incrementing the char** array pointer to the 2nd element
  */
 char** CommandLine::getArgVector() const{
-	return argv+1;
+	return argv;
 }
 
 /*
@@ -83,10 +89,7 @@ char* CommandLine::getArgVector(int i) const{
  * Returns false if there was an ampersand given in the command-line
  */
 bool CommandLine::noAmpersand() const{
-	for(int i=0; i<argc; i++){
-		if (*argv[i] == '&') return false;
-	}
-	return true;
+	return noAmpersand_var;
 }
 
 /*

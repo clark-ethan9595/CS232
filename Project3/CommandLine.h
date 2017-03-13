@@ -38,6 +38,7 @@ private:
 	int argc;
 	char** argv;
 	vector<string> myArgv;
+	bool noAmpersand_var;
 };
 
 #endif /* COMMANDLINE_H_ */
