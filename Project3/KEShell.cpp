@@ -1,19 +1,14 @@
 /*
  * KEShell.h is a shell class that simulates a shell program
  *
- * Written by: Ethan Clark & Kyuhyun Jeong
+ * Written by: Ethan Clark (elc3) & Kyuhyun Jeong (kj34)
  * CS 232 - Project 3
- * March 10, 2017
+ * March 13, 2017
  */
 
 // Include KEShell.h header file
 #include "KEShell.h"
 using namespace std;
-
-/*
- * KEShell() is a constructor for the KEShell class
- */
-KEShell::KEShell() { }
 
 /*
  * run() executes the shell
@@ -38,9 +33,6 @@ void KEShell::run() {
 
 	while (true) {
 		cout << prompt.get() << "$ ";
-		if (cin.peek() == '\n') {
-			cin.ignore(INT_MAX, '\n');
-		}
 		CommandLine cl = CommandLine(cin);
 
 		if (strcmp(cl.getCommand(), "exit") == 0) {

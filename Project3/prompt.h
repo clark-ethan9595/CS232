@@ -1,9 +1,9 @@
 /*
  * prompt.h provides a class to represent the command-line promp
  *
- * Written by: Ethan Clark
+ * Written by: Ethan Clark (elc3)
  * CS 232 - Project 3
- * Partner: Kyuhyun Jeong
+ * Partner: Kyuhyun Jeong (kj34)
  * March 6, 2017
  */
 

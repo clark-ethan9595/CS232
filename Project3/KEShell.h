@@ -1,9 +1,9 @@
 /*
  * KEShell.h is a shell class that simulates a shell program
  *
- * Written by: Ethan Clark & Kyuhyun Jeong
+ * Written by: Ethan Clark (elc3) & Kyuhyun Jeong (kj34)
  * CS 232 - Project 3
- * March 6, 2017
+ * March 13, 2017
  */
 
 #ifndef KESHELL_H_
@@ -22,7 +22,8 @@ class KEShell {
 
 // Public section of KEShell class
 public:
-	KEShell();
+	// KEShell constructor
+	KEShell() { };
 	void run();
 
 // Private instance variables

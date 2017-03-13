@@ -2,8 +2,8 @@
  * CommandLine.cpp is a class to read a command-line and construct a vector from the arguments
  *
  *  Created on: Mar 7, 2017
- *      Author: Kyuhyun Jeong
- *		Parthner: Ethan Clark
+ *      Author: Kyuhyun Jeong (kj34)
+ *		Partner: Ethan Clark (elc3)
  * CS 232 - Project 3
  */
 
