@@ -4,8 +4,8 @@ the percentage of a fair share that each person contributed to the project.
 (If each person did their fair share, use 100%.) 
 
 
-NAME: Ethan Clark           FAIR SHARE PERCENTAGE (0 - 100): 100% 
-NAME: Kyuhyun Jeong         FAIR SHARE PERCENTAGE (0 - 100): 100% 
+NAME: Ethan Clark (elc3)           FAIR SHARE PERCENTAGE (0 - 100): 100% 
+NAME: Kyuhyun Jeong (kj34)         FAIR SHARE PERCENTAGE (0 - 100): 100% 
 
 
 

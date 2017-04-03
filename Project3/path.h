@@ -2,9 +2,9 @@
  * path.h is a class that represents the directories in which our shell program searches
  *		for executable programs
  *
- * Written by: Ethan Clark
+ * Written by: Ethan Clark (elc3)
  * CS 232 - Project 3
- * Partner: Kyuhyun Jeong
+ * Partner: Kyuhyun Jeong (kj34)
  * March 6, 2017
  */
 
