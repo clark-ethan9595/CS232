@@ -1,0 +1,383 @@
+Script started on Wed 05 Apr 2017 04:46:48 PM EDT
+elc3@ritchie:~/Documents/CS232/Project4$ ls
+bakeshop  bakeshop.c  questions.txt  typescript
+elc3@ritchie:~/Documents/CS232/Project4$ gcc bakeshop.c -o bakse  eshop -lpthread
+elc3@ritchie:~/Documents/CS232/Project4$ ./bakeshop
+
+*******Store is open and baker is ready to bake!*********
+
+Loaf 1 is baked and available for sale.
+
+Customer 0 is waiting to get into the store.
+
+Customer 2 is waiting to get into the store.
+
+Customer 1 is waiting to get into the store.
+
+Customer 0 entered the store.
+
+Customer 1 entered the store.
+
+Customer 2 entered the store.
+
+Customer 0 has a loaf of bread.
+
+Customer 2 has a loaf of bread.
+
+Customer 3 is waiting to get into the store.
+
+Customer 3 entered the store.
+
+Customer 2 is waiting to check out.
+
+Customer 5 is waiting to get into the store.
+
+Customer 5 entered the store.
+
+Customer 6 is waiting to get into the store.
+
+Customer 7 is waiting to get into the store.
+
+Customer 8 is waiting to get into the store.
+
+Customer 9 is waiting to get into the store.
+
+Customer 4 is waiting to get into the store.
+
+Customer 0 paid for the loaf.
+
+Baker printed out recipt for customer 0.
+
+Customer 0 just got a recipt!
+
+Customer 0 is waiting to check out.
+
+Customer 0 paid for the loaf.
+
+Baker printed out recipt for customer 0.
+
+Customer 0 just got a recipt!
+
+Loaf 2 is baked and available for sale.
+
+Loaf 3 is baked and available for sale.
+
+Customer 3 has a loaf of bread.
+
+Customer 3 is waiting to check out.
+
+Customer 3 paid for the loaf.
+
+Baker printed out recipt for customer 3.
+
+Customer 3 just got a recipt!
+
+Loaf 4 is baked and available for sale.
+
+Customer 2 has left the store.
+
+Customer 0 has left the store.
+
+Customer 7 entered the store.
+
+Customer 7 has a loaf of bread.
+
+Customer 6 entered the store.
+
+Customer 7 is waiting to check out.
+
+Customer 7 paid for the loaf.
+
+Baker printed out recipt for customer 7.
+
+Customer 7 just got a recipt!
+
+Customer 3 has left the store.
+
+Loaf 5 is baked and available for sale.
+
+Customer 6 has a loaf of bread.
+
+Customer 6 is waiting to check out.
+
+Customer 8 entered the store.
+
+Customer 6 paid for the loaf.
+
+Baker printed out recipt for customer 6.
+
+Customer 6 just got a recipt!
+
+Loaf 6 is baked and available for sale.
+
+Customer 5 has a loaf of bread.
+
+Customer 5 is waiting to check out.
+
+Customer 5 paid for the loaf.
+
+Baker printed out recipt for customer 5.
+
+Customer 5 just got a recipt!
+
+Loaf 7 is baked and available for sale.
+
+Loaf 8 is baked and available for sale.
+
+Customer 1 has a loaf of bread.
+
+Customer 1 is waiting to check out.
+
+Customer 1 paid for the loaf.
+
+Baker printed out recipt for customer 1.
+
+Customer 1 just got a recipt!
+
+Loaf 9 is baked and available for sale.
+
+Customer 6 has left the store.
+
+Customer 7 has left the store.
+
+Customer 9 entered the store.
+
+Customer 5 has left the store.
+
+Customer 4 entered the store.
+
+Customer 4 has a loaf of bread.
+
+Customer 4 is waiting to check out.
+
+Customer 4 paid for the loaf.
+
+Baker printed out recipt for customer 4.
+
+Customer 4 just got a recipt!
+
+Loaf 10 is baked and available for sale.
+
+Customer 9 has a loaf of bread.
+
+Customer 9 is waiting to check out.
+
+******All bread has been baked!*******
+
+Customer 9 paid for the loaf.
+
+Baker printed out recipt for customer 9.
+
+Customer 9 just got a recipt!
+
+Customer 8 has a loaf of bread.
+
+Customer 8 is waiting to check out.
+
+Customer 8 paid for the loaf.
+
+Baker printed out recipt for customer 8.
+
+Customer 8 just got a recipt!
+
+******All customers have checked out and gotten recipts!******
+
+Customer 1 has left the store.
+
+Customer 9 has left the store.
+
+Customer 4 has left the store.
+
+Customer 8 has left the store.
+
+elc3@ritchie:~/Documents/CS232/Project4$ ./bakeshop
+
+*******Store is open and baker is ready to bake!*********
+
+Loaf 1 is baked and available for sale.
+
+Customer 6 is waiting to get into the store.
+
+Customer 6 entered the store.
+
+Customer 6 has a loaf of bread.
+
+Customer 1 is waiting to get into the store.
+
+Customer 6 is waiting to check out.
+
+Customer 9 is waiting to get into the store.
+
+Customer 9 entered the store.
+
+Customer 2 is waiting to get into the store.
+
+Customer 2 entered the store.
+
+Customer 1 entered the store.
+
+Customer 8 is waiting to get into the store.
+
+Customer 8 entered the store.
+
+Customer 3 is waiting to get into the store.
+
+Customer 0 is waiting to get into the store.
+
+Customer 4 is waiting to get into the store.
+
+Customer 7 is waiting to get into the store.
+
+Customer 5 is waiting to get into the store.
+
+Customer 6 paid for the loaf.
+
+Baker printed out recipt for customer 6.
+
+Customer 6 just got a recipt!
+
+Loaf 2 is baked and available for sale.
+
+Customer 9 has a loaf of bread.
+
+Customer 9 is waiting to check out.
+
+Customer 9 paid for the loaf.
+
+Baker printed out recipt for customer 9.
+
+Customer 9 just got a recipt!
+
+Customer 1 has a loaf of bread.
+
+Loaf 3 is baked and available for sale.
+
+Customer 1 is waiting to check out.
+
+Customer 1 paid for the loaf.
+
+Baker printed out recipt for customer 1.
+
+Customer 1 just got a recipt!
+
+Loaf 4 is baked and available for sale.
+
+Customer 6 has left the store.
+
+Customer 2 has a loaf of bread.
+
+Customer 2 is waiting to check out.
+
+Customer 3 entered the store.
+
+Customer 2 paid for the loaf.
+
+Baker printed out recipt for customer 2.
+
+Customer 2 just got a recipt!
+
+Loaf 5 is baked and available for sale.
+
+Customer 8 has a loaf of bread.
+
+Customer 8 is waiting to check out.
+
+Customer 8 paid for the loaf.
+
+Baker printed out recipt for customer 8.
+
+Customer 8 just got a recipt!
+
+Loaf 6 is baked and available for sale.
+
+Customer 9 has left the store.
+
+Customer 0 entered the store.
+
+Customer 3 has a loaf of bread.
+
+Customer 3 is waiting to check out.
+
+Customer 3 paid for the loaf.
+
+Baker printed out recipt for customer 3.
+
+Customer 3 just got a recipt!
+
+Loaf 7 is baked and available for sale.
+
+Customer 1 has left the store.
+
+Customer 8 has left the store.
+
+Customer 4 entered the store.
+
+Customer 7 entered the store.
+
+Customer 0 has a loaf of bread.
+
+Customer 0 is waiting to check out.
+
+Customer 0 paid for the loaf.
+
+Baker printed out recipt for customer 0.
+
+Customer 0 just got a recipt!
+
+Loaf 8 is baked and available for sale.
+
+Customer 3 has left the store.
+
+Customer 5 entered the store.
+
+Customer 4 has a loaf of bread.
+
+Customer 4 is waiting to check out.
+
+Customer 4 paid for the loaf.
+
+Baker printed out recipt for customer 4.
+
+Customer 4 just got a recipt!
+
+Loaf 9 is baked and available for sale.
+
+Customer 2 has left the store.
+
+Customer 0 has left the store.
+
+Customer 5 has a loaf of bread.
+
+Customer 5 is waiting to check out.
+
+Customer 5 paid for the loaf.
+
+Baker printed out recipt for customer 5.
+
+Customer 5 just got a recipt!
+
+Customer 4 has left the store.
+
+Loaf 10 is baked and available for sale.
+
+Customer 7 has a loaf of bread.
+
+Customer 7 is waiting to check out.
+
+******All bread has been baked!*******
+
+Customer 7 paid for the loaf.
+
+Baker printed out recipt for customer 7.
+
+Customer 7 just got a recipt!
+
+******All customers have checked out and gotten recipts!******
+
+Customer 5 has left the store.
+
+Customer 7 has left the store.
+
+elc3@ritchie:~/Documents/CS232/Project4$ exit
+
+Script done on Wed 05 Apr 2017 04:47:46 PM EDT
