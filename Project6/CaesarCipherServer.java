@@ -1,5 +1,5 @@
 /*
- * CaesarCipherServer implements the server side of taking a string and caeser cipher coding it.
+ * CaesarCipherServer implements the server side of taking a string and caeser cipher encrypting it.
  * Gets called by a client application.
  *
  * Written by: Ethan Clark
