@@ -1,0 +1,16 @@
+Project 5: Client-Server Computing
+
+I, the undersigned, affirm that the submitted project is
+the work of myself and no one else.
+
+
+NAME: ETHAN CLARK
+
+
+
+Category                    Points Possible      Points Earned
+Client                      25                   
+Server                      35                   
+Multithreading              30                   
+Style and Documentation     10
+Total                       100

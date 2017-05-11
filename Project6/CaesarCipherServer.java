@@ -4,7 +4,7 @@
  *
  * Written by: Ethan Clark
  * Project 6 - CS 232
- * Date: May 7, 2017
+ * Date: May 11, 2017
  */
 
 import java.util.Scanner;
@@ -20,38 +20,50 @@ public class CaesarCipherServer {
 	public static void main(String[] args) throws Exception {
 
 		int portNumber = Integer.parseInt(args[0]);
-		ServerSocket my_socket = new ServerSocket(portNumber);
+		System.out.println("Server started on port " + portNumber);
+		boolean listening = true;
 
-		while (true) {
-			Socket clientSocket = my_socket.accept();
-			PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-			BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+			while (listening) {
+				new CaesarCipherMultiThread(serverSocket.accept()).start();
+			}
+		} catch (IOException e) {
+			System.err.println("Could not listen on port " + portNumber);
+			Systemexit(-1);
+		}
+	}
 
-			String string;
-			Integer rotation;
+	public class CaesarCipherMultiThread extends Thread {
+		private Socket socket = null;
 
-			while ((string = in.readLine()) != null) {
+		public CaesarCipherMultiThread(Socket socket) {
+			super("CaesarCipherMultiThread");
+			this.socket = socket;
+		}
 
-				try {
-					rotation = Integer.parseInt(string);
+		public void run() {
+			Integer rotation = 0;
+			try (
+				PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			) {
+				String string;
+				while ((s = in.readLine()) != null) {
+					rotation = Integer.parseInt(s);
 					out.append(rotation.toString());
 					out.append("\n");
 					out.flush();
-				} catch (NumberFormatException ne) {
-					out.append("Rotation number must be an integer 1 - 25!");
+					out.append(caesarCipher(rotation, string));
+					out.append("\n");
 					out.flush();
-					break;
 				}
 
-				out.append(caesarCipher(rotation, string));
-				out.append("\n");
-				out.flush();
+				out.close();
+				in.close();
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-
-			out.close();
-			in.close();
-			clientSocket.close();
-		
 		}
 	}
 
